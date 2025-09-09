@@ -1,0 +1,35 @@
+package modelo.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class ConexionMy8 {
+
+	private static Connection conn;
+	private String url = "jdbc:mysql://localhost:3306/proyectos_FP_2025?serverTimezone=UTC";
+	private String user = "root";
+	private String password = "root";
+
+	private ConexionMy8() {
+		try {
+			conn = DriverManager.getConnection(url, user, password);
+			System.out.println("CONEXION ESTABLECIDA");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+
+			System.out.println("CONEXION NOOO ESTABLECIDA");
+		}
+	}
+
+	public static Connection getConexion() {
+
+		if (conn == null)
+			new ConexionMy8();
+
+		return conn;
+
+	}
+
+}

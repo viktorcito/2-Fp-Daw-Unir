@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Detalle de la Excursión</title>
+</head>
+<body>
+    <h1>Detalle de la Excursión</h1>
+    
+    <p><strong>ID:</strong> <span th:text="${excursion.idExcursion}"></span></p>
+    <p><strong>Descripción:</strong> <span th:text="${excursion.descripcion}"></span></p>
+    <p><strong>Origen:</strong> <span th:text="${excursion.origen}"></span></p>
+    <p><strong>Destino:</strong> <span th:text="${excursion.destino}"></span></p>
+    <p><strong>Fecha:</strong> <span th:text="${#dates.format(excursion.fechaExcursion, 'yyyy-MM-dd')}"></span></p>
+    <p><strong>Duración:</strong> <span th:text="${excursion.duracion} + ' horas'"></span></p>
+    <p><strong>Estado:</strong> <span th:text="${excursion.estado}"></span></p>
+    <p><strong>Destacado:</strong> <span th:text="${excursion.destacado}"></span></p>
+    <p><strong>Aforo Máximo:</strong> <span th:text="${excursion.aforoMaximo}"></span></p>
+    <p><strong>Mínimo Asistentes:</strong> <span th:text="${excursion.minimoAsistentes}"></span></p>
+    <p><strong>Precio Unitario:</strong> <span th:text="${excursion.precioUnitario} + ' €'"></span></p>
+    <p><strong>Imagen:</strong> <span th:text="${excursion.imagen}"></span></p>
+    <p><strong>Fecha de Alta:</strong> <span th:text="${#dates.format(excursion.fechaAlta, 'yyyy-MM-dd')}"></span></p>
+
+    <a href="/">Volver a la Lista</a>
+</body>
+</html>

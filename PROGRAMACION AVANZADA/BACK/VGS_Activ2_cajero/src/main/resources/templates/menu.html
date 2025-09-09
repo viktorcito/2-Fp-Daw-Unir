@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Menú - Cajero Virtual</title>
+</head>
+<body>
+    <h1>Menú Principal</h1>
+    <ul>
+        <li><a th:href="@{/operacion/ingresar}">Ingresar</a></li>
+        <li><a th:href="@{/operacion/extraer}">Extraer</a></li>
+        <li><a th:href="@{/operacion/transferir}">Transferir</a></li>
+        <li><a th:href="@{/operacion/movimientos}">Ver Movimientos</a></li>
+        <li><a th:href="@{/cerrarSesion}">Cerrar Sesión</a></li>
+    </ul>
+</body>
+</html>

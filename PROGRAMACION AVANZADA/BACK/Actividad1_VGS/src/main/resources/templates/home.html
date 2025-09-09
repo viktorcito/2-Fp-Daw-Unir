@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Excursiones</title>
+</head>
+<body>
+    <h1>Lista de Excursiones</h1>
+
+    <!-- Botones de filtro -->
+    <button onclick="window.location.href='/'">Excursiones Creadas</button>
+    <button onclick="window.location.href='/excursion/destacados'">Excursiones Destacadas</button>
+    <button onclick="window.location.href='/excursion/terminados'">Excursiones Canceladas</button>
+    <a href="/excursion/alta">Crear Nueva Excursión</a>
+
+    <!-- Tabla de excursiones -->
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Descripción</th>
+            <th>Origen</th>
+            <th>Destino</th>
+            <th>Fecha</th>
+            <th>Duración</th>
+            <th>Estado</th>
+            <th>Destacado</th>
+            <th>Aforo Máximo</th>
+            <th>Mínimo Asistentes</th>
+            <th>Precio Unitario</th>
+            <th>Acciones</th>
+        </tr>
+        <tr th:each="excursion : ${excursiones}">
+            <td th:text="${excursion.idExcursion}"></td>
+            <td th:text="${excursion.descripcion}"></td>
+            <td th:text="${excursion.origen}"></td>
+            <td th:text="${excursion.destino}"></td>
+            <td th:text="${#dates.format(excursion.fechaExcursion, 'yyyy-MM-dd')}"></td>
+            <td th:text="${excursion.duracion} + ' horas'"></td>
+            <td th:text="${excursion.estado}"></td>
+            <td th:text="${excursion.destacado}"></td>
+            <td th:text="${excursion.aforoMaximo}"></td>
+            <td th:text="${excursion.minimoAsistentes}"></td>
+            <td th:text="${excursion.precioUnitario} + ' €'"></td>
+            <td>
+    			<a th:href="@{/excursion/detalle/{idExcursion}(idExcursion=${excursion.idExcursion})}">Detalles</a> |
+    			<a th:href="@{/excursion/modificar/{idExcursion}(idExcursion=${excursion.idExcursion})}">Modificar</a> |
+    			<a th:href="@{/excursion/cancelar/{idExcursion}(idExcursion=${excursion.idExcursion})}">Cancelar</a>
+			</td>
+            
+        </tr>
+    </table>
+</body>
+</html>
+

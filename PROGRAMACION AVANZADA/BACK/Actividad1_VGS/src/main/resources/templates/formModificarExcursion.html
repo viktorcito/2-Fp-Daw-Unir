@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Modificar Excursión</title>
+</head>
+<body>
+    <h1>Modificar Excursión</h1>
+    <form th:action="@{/excursion/modificar/{idExcursion}(idExcursion=${excursion.idExcursion})}" th:object="${excursion}" method="post">
+        <label>Descripción:</label>
+        <input type="text" th:field="*{descripcion}" required/><br/>
+
+        <label>Origen:</label>
+        <input type="text" th:field="*{origen}" required/><br/>
+
+        <label>Destino:</label>
+        <input type="text" th:field="*{destino}" required/><br/>
+
+        <label>Fecha de Excursión:</label>
+        <input type="date" th:field="*{fechaExcursion}" required/><br/>
+
+        <label>Duración (horas):</label>
+        <input type="number" th:field="*{duracion}" required/><br/>
+
+        <label>Estado:</label>
+        <select th:field="*{estado}">
+            <option value="CREADO">CREADO</option>
+            <option value="CANCELADO">CANCELADO</option>
+            <option value="TERMINADO">TERMINADO</option>
+        </select><br/>
+
+        <label>Destacado:</label>
+        <select th:field="*{destacado}">
+            <option value="S">Sí</option>
+            <option value="N">No</option>
+        </select><br/>
+
+        <label>Aforo Máximo:</label>
+        <input type="number" th:field="*{aforoMaximo}" required/><br/>
+
+        <label>Mínimo Asistentes:</label>
+        <input type="number" th:field="*{minimoAsistentes}" required/><br/>
+
+        <label>Precio Unitario (€):</label>
+        <input type="number" th:field="*{precioUnitario}" step="0.01" required/><br/>
+
+        <label>Imagen URL:</label>
+        <input type="text" th:field="*{imagen}" required/><br/>
+
+        <label>Fecha de Alta:</label>
+        <input type="date" th:field="*{fechaAlta}" required/><br/>
+
+        <button type="submit">Guardar Cambios</button>
+    </form>
+    <a href="/">Cancelar</a>
+</body>
+</html>
+

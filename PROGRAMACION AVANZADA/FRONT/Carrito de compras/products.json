@@ -1,0 +1,35 @@
+{
+    "currency": "€",
+    "products": [
+        {
+            "SKU": "0K3QOSOV4V",
+            "title": "iPhone 13 Pro",
+            "price": "938.99",
+            "image": "https://via.placeholder.com/300x200?text=iPhone+13+Pro"
+        },
+        {
+            "SKU": "TGD5XORY1L",
+            "title": "Cargador",
+            "price": "49.99",
+            "image": "https://via.placeholder.com/300x200?text=Cargador"
+        },
+        {
+            "SKU": "IOKW9BQ9F3",
+            "title": "Funda de piel",
+            "price": "79.99",
+            "image": "https://via.placeholder.com/300x200?text=Funda+de+piel"
+        },
+        {
+            "SKU": "YH7G8J9K0L",
+            "title": "Auriculares inalámbricos",
+            "price": "199.99",
+            "image": "https://via.placeholder.com/300x200?text=Auriculares"
+        },
+        {
+            "SKU": "MNBV5C4X2Z",
+            "title": "Protector de pantalla",
+            "price": "29.99",
+            "image": "https://via.placeholder.com/300x200?text=Protector+de+pantalla"
+        }
+    ]
+}
