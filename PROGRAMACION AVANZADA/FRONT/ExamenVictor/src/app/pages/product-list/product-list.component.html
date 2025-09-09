@@ -1,0 +1,10 @@
+<h2>Listado de Productos</h2>
+
+<div class="row">
+  @for(product of arrProducts; track product.id){
+  <article class="col-12 col-md-6 col-sd-3">
+      <app-product-card [miProduct]="product"></app-product-card>
+  </article>
+  }
+</div>
+

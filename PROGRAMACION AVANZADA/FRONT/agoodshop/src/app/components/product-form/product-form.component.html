@@ -1,0 +1,115 @@
+<div class="card mb-4">
+    <div class="card-header">
+      <h4>Agregar Producto</h4>
+    </div>
+    <div class="card-body">
+      
+      <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        
+        
+        <div class="mb-3">
+          <label for="name" class="form-label">Nombre</label>
+          <input
+            id="name"
+            type="text"
+            class="form-control"
+            formControlName="name"
+          />
+          <div 
+            *ngIf="productForm.controls['name'].invalid && productForm.controls['name'].touched" 
+            class="text-danger"
+          >
+            Nombre es requerido (mínimo 3 caracteres).
+          </div>
+        </div>
+  
+        
+        <div class="mb-3">
+          <label for="description" class="form-label">Descripción</label>
+          <textarea
+            id="description"
+            class="form-control"
+            rows="2"
+            formControlName="description"
+          ></textarea>
+          <div 
+            *ngIf="productForm.controls['description'].invalid && productForm.controls['description'].touched" 
+            class="text-danger"
+          >
+            Descripción es requerida (mínimo 5 caracteres).
+          </div>
+        </div>
+  
+        
+        <div class="mb-3">
+          <label for="price" class="form-label">Precio</label>
+          <input
+            id="price"
+            type="number"
+            class="form-control"
+            formControlName="price"
+          />
+          <div 
+            *ngIf="productForm.controls['price'].invalid && productForm.controls['price'].touched" 
+            class="text-danger"
+          >
+            El precio es requerido y debe ser >= 0.
+          </div>
+        </div>
+  
+        
+        <div class="mb-3">
+          <label for="category" class="form-label">Categoría</label>
+          <select
+            id="category"
+            class="form-select"
+            formControlName="category"
+          >
+            <option value="">Seleccione una categoría</option>
+            <option value="hombre">Hombre</option>
+            <option value="mujer">Mujer</option>
+            <option value="niño">Niño</option>
+          </select>
+          <div 
+            *ngIf="productForm.controls['category'].invalid && productForm.controls['category'].touched" 
+            class="text-danger"
+          >
+            Debes seleccionar una categoría.
+          </div>
+        </div>
+  
+        
+        <div class="mb-3">
+          <label for="image" class="form-label">URL de Imagen</label>
+          <input
+            id="image"
+            type="text"
+            class="form-control"
+            formControlName="image"
+          />
+          <div 
+            *ngIf="productForm.controls['image'].invalid && productForm.controls['image'].touched" 
+            class="text-danger"
+          >
+            La URL de la imagen es requerida.
+          </div>
+        </div>
+  
+        
+        <div class="form-check mb-3">
+          <input
+            id="active"
+            type="checkbox"
+            class="form-check-input"
+            formControlName="active"
+          />
+          <label for="active" class="form-check-label">Activo</label>
+        </div>
+  
+        <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">
+          Agregar
+        </button>
+      </form>
+    </div>
+  </div>
+  

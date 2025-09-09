@@ -1,0 +1,92 @@
+<div class="card mb-4">
+    <div class="card-header">
+      <h4>Filtrar Productos</h4>
+    </div>
+    <div class="card-body">
+      
+      <form #filterForm="ngForm" (ngSubmit)="onSubmit(filterForm)">
+  
+        
+        <div class="mb-3">
+          <label for="name" class="form-label">Nombre</label>
+          <input
+            id="name"
+            type="text"
+            class="form-control"
+            [(ngModel)]="name"
+            name="name"
+          />
+        </div>
+  
+        
+        <div class="mb-3">
+          <label for="category" class="form-label">Categoría</label>
+          <select
+            id="category"
+            class="form-select"
+            [(ngModel)]="category"
+            name="category"
+          >
+            <option value="">(Todas)</option>
+            <option value="hombre">Hombre</option>
+            <option value="mujer">Mujer</option>
+            <option value="niño">Niño</option>
+          </select>
+        </div>
+  
+        
+        <div class="mb-3">
+          <label for="price" class="form-label">Precio máximo</label>
+          <input
+            id="price"
+            type="number"
+            class="form-control"
+            [(ngModel)]="price"
+            name="price"
+          />
+        </div>
+  
+        
+        <div class="mb-3">
+          <label class="form-label">Estado</label>
+          <select
+            class="form-select"
+            [(ngModel)]="active"
+            name="active"
+          >
+            <option value="">(Todos)</option>
+            <option value="true">Activo</option>
+            <option value="false">Inactivo</option>
+          </select>
+        </div>
+  
+        
+        <button type="submit" class="btn btn-primary">
+          Filtrar
+        </button>
+        <button 
+          type="button" 
+          class="btn btn-secondary ms-2" 
+          (click)="clearFilters(filterForm)"
+        >
+          Limpiar
+        </button>
+      </form>
+    </div>
+  </div>
+  
+  
+  <div *ngIf="filteredProducts && filteredProducts.length > 0">
+    <h5>Resultados de la Búsqueda:</h5>
+    <div class="row g-3">
+      <div class="col-md-4" *ngFor="let product of filteredProducts">
+        
+        <app-product-card [product]="product"></app-product-card>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="filteredProducts && filteredProducts.length === 0">
+    <p>No se encontraron productos con los filtros especificados.</p>
+  </div>
+  

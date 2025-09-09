@@ -1,0 +1,14 @@
+<div class="row g-3">
+  <div class="col-12">
+    <h2>Lista de Productos</h2>
+  </div>
+
+  
+  <div class="col-md-4" *ngFor="let product of products">
+    <app-product-card 
+      [product]="product" 
+      (onRemove)="refresh()"
+    ></app-product-card>
+  </div>
+</div>
+<!-- *ngFor para iterar sobre products tambien se puede usar el @ for cambia un pelin -->

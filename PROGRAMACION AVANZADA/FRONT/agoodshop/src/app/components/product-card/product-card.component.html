@@ -1,0 +1,26 @@
+<div class="card shadow-sm">
+    <img 
+      [src]="product.image" 
+      class="card-img-top" 
+      [alt]="product.name"
+      style="max-height: 200px; object-fit: cover;"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ product.name }}</h5>
+      <p class="card-text">{{ product.description }}</p>
+      <p class="card-text">
+        <strong>Precio:</strong> {{ product.price | currency:'EUR': 'symbol' }}
+      </p>
+      <p class="card-text">
+        <strong>Categoría:</strong> {{ product.category }}
+      </p>
+      <p class="card-text" [ngClass]="{'text-success': product.active, 'text-danger': !product.active}">
+        <strong>Estado:</strong> {{ product.active ? 'Activo' : 'Inactivo' }}
+      </p>
+      <button class="btn btn-danger" (click)="removeProduct()">
+        Eliminar
+      </button>
+    </div>
+  </div>
+<!-- {{ product.name }} usa interpolación para mostrar la propiedad “name”  -->
+<!--  -->
