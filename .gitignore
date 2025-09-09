@@ -1,151 +1,33 @@
-# === Build ===
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
-*.class
-*.jar
-*.war
-*.ear
+# Dependencies
+node_modules/
+npm-debug.log*
 
-# === IDE - Eclipse ===
-.settings/
-.project
-.classpath
-.factorypath
-.apt_generated
-.apt_generated_test
-.springBeans
-bin/
-.metadata
+# Build outputs
+dist/
+.angular/
 
-# === IDE - Spring Tool Suite ===
-.sts4-cache/
-*.springBeans
-
-# === IDE - IntelliJ IDEA ===
+# IDE files
+.vscode/
 .idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+
+# Compiled class file
+*.class
+target/
+
+# IDE files
+.idea/
+.vscode/
 *.iws
 *.iml
-*.ipr
-out/
 
-# === IDE - VS Code ===
-.vscode/
-*.code-workspace
+# Spring Boot
+*.jar
+!gradle-wrapper.jar
 
-# === Maven ===
-.mvn/
-mvnw
-mvnw.cmd
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-
-# === Logs ===
+# Logs
 *.log
-logs/
-log/
-
-# === Base de datos local ===
-*.db
-*.sqlite
-*.h2.db
-.h2.server.properties
-
-# === Archivos de configuración sensibles ===
-application-local.properties
-application-local.yml
-application-dev.properties
-application-prod.properties
-*.env
-.env.local
-secrets.properties
-
-# === Sistema Operativo ===
-.DS_Store
-Thumbs.db
-desktop.ini
-*.swp
-*~
-
-# === Otros ===
-*.tmp
-*.bak
-*.backup
-.attach_pid*
-
-
-# === Compilación ===
-dist/
-tmp/
-out-tsc/
-bazel-out/
-
-# === Dependencias ===
-node_modules/
-npm-debug.log
-yarn-error.log
-
-# === IDEs y Editores ===
-.idea/
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-
-# === IDE - Visual Studio Code ===
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
-*.code-workspace
-
-# === Archivos del sistema ===
-.DS_Store
-Thumbs.db
-desktop.ini
-
-# === Tests ===
-/karma.conf.js
-/protractor.conf.js
-/e2e/*.js
-/e2e/*.map
-coverage/
-*.lcov
-.nyc_output/
-
-# === Angular Cache ===
-.angular/
-.sass-cache/
-connect.lock
-
-# === Archivos temporales ===
-*.tmp
-*.temp
-*.log
-*.pid
-*.seed
-*.pid.lock
-
-# === Configuración local ===
-.env
-.env.local
-environment.local.ts
-environment.prod.ts
-
-# === Misceláneos ===
-/.sass-cache
-/connect.lock
-/libpeerconnection.log
-testem.log
-/typings
-*.map
-
-
