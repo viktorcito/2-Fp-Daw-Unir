@@ -1,0 +1,21 @@
+INDEX VERSION 1.134+C:\Users\VSPC\Documents\DAW_JAVA_2425\WS_DAW\.metadata\.plugins\org.eclipse.jdt.core
+2624194195.index
+2774099320.index
+3210847599.index
+2936035494.index
+1654910839.index
+2118559102.index
+367356155.index
+734265820.index
+191232416.index
+1865797976.index
+500148360.index
+3206340235.index
+1567885786.index
+2669752918.index
+363126753.index
+4240931540.index
+896159696.index
+1902244911.index
+1919831336.index
+3213584615.index

@@ -1,0 +1,15 @@
+package modelo.dao;
+
+import java.util.List;
+import modelo.javabeans.Cliente;
+
+public interface ClienteDao {
+
+    int altaCliente(Cliente c);                  // devuelve 1 si OK, 0 si KO
+    Cliente buscarUnCliente(String cif);
+    List<Cliente> buscarTodos();
+    int eliminarCliente(String cif);             // 1 OK, 0 KO
+
+    String exportar(String nombreFichero);       // mensajes indicados
+    List<Cliente> importar(String nombreFichero);
+}

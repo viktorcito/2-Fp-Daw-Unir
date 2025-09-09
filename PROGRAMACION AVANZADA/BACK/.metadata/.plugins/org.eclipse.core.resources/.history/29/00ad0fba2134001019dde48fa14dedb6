@@ -1,0 +1,31 @@
+package test.dao;
+
+import modelo.dao.*;
+import modelo.entities.Departamento;
+
+public class TestDepartamentos {
+    public static void main(String[] args) {
+
+        DepartamentoDao ddao = new DepartamentoDaoImplJpa();
+
+        // LISTAR
+        ddao.findAll().forEach(System.out::println);
+
+        // INSERTAR
+        Departamento nuevo = new Departamento(99, "Cádiz", "Pruebas");
+        ddao.insert(nuevo);
+
+        // BUSCAR
+        System.out.println(ddao.findById(99));
+
+        // ACTUALIZAR
+        nuevo.setNombre("Pruebas QA");
+        ddao.update(nuevo);
+        System.out.println(ddao.findById(99));
+
+        // ELIMINAR
+        ddao.deletebyId(99);
+
+        System.out.println("FIN DE TEST DEPARTAMENTOS");
+    }
+}

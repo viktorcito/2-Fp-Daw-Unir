@@ -1,0 +1,33 @@
+package modelo.dao;
+
+import java.util.List;
+import jakarta.persistence.Query;
+import modelo.entities.Perfil;
+
+public class PerfilDaoImplJpa extends AbsConexionJpa implements PerfilDao {
+
+    @Override public Perfil findById(Integer id) { return em.find(Perfil.class, id); }
+
+    @Override public int insert(Perfil p) {
+        try { tx.begin(); em.persist(p); tx.commit(); return 1; }
+        catch (Exception e) { e.printStackTrace(); tx.rollback(); return 0; }
+    }
+
+    @Override public int update(Perfil p) {
+        try { tx.begin(); em.merge(p); tx.commit(); return 1; }
+        catch (Exception e) { e.printStackTrace(); tx.rollback(); return 0; }
+    }
+
+    @Override public int deletebyId(Integer id) {
+        Perfil ref = findById(id);
+        if (ref == null) return 0;
+        try { tx.begin(); em.remove(ref); tx.commit(); return 1; }
+        catch (Exception e) { e.printStackTrace(); tx.rollback(); return -1; }
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override public List<Perfil> findAll() {
+        Query q = em.createQuery("FROM Perfil");
+        return q.getResultList();
+    }
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;nombre&apos; in &apos;excursionweb.modelo.javabean.Excursion&apos; to &apos;descripcion&apos;&#x0D;&#x0A;- Original project: &apos;Actividad1_VGS&apos;&#x0D;&#x0A;- Original element: &apos;excursionweb.modelo.javabean.Excursion.nombre&apos;&#x0D;&#x0A;- Renamed element: &apos;excursionweb.modelo.javabean.Excursion.descripcion&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;nombre&apos;" flags="589826" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;excursionweb.modelo.javabean{Excursion.java[Excursion^nombre" name="descripcion" references="true" setter="false" stamp="1730582094927" textual="false" version="1.0"/>
+</session>

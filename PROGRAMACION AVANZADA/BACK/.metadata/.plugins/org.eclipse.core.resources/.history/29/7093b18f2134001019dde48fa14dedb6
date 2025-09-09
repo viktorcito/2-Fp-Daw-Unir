@@ -1,0 +1,65 @@
+package modelo.dao;
+
+import java.util.List;
+import jakarta.persistence.Query;
+import modelo.entities.Departamento;
+
+public class DepartamentoDaoImplJpa extends AbsConexionJpa implements DepartamentoDao {
+
+	@Override
+	public Departamento findById(Integer id) {
+		return em.find(Departamento.class, id);
+	}
+
+	@Override
+	public int insert(Departamento d) {
+		try {
+			tx.begin();
+			em.persist(d);
+			tx.commit();
+			return 1;
+		} catch (Exception e) {
+			e.printStackTrace();
+			tx.rollback();
+			return 0;
+		}
+	}
+
+	@Override
+	public int update(Departamento d) {
+		try {
+			tx.begin();
+			em.merge(d);
+			tx.commit();
+			return 1;
+		} catch (Exception e) {
+			e.printStackTrace();
+			tx.rollback();
+			return 0;
+		}
+	}
+
+	@Override
+	public int deletebyId(Integer id) {
+		Departamento ref = findById(id);
+		if (ref == null)
+			return 0;
+		try {
+			tx.begin();
+			em.remove(ref);
+			tx.commit();
+			return 1;
+		} catch (Exception e) {
+			e.printStackTrace();
+			tx.rollback();
+			return -1;
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Departamento> findAll() {
+		Query q = em.createQuery("FROM Departamento");
+		return q.getResultList();
+	}
+}

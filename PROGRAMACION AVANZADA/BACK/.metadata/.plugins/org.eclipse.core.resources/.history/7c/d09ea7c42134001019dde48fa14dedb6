@@ -1,0 +1,26 @@
+package test.dao;
+
+import modelo.dao.*;
+import modelo.entities.Perfil;
+
+public class TestPerfiles {
+    public static void main(String[] args) {
+
+        PerfilDao pdao = new PerfilDaoImplJpa();
+
+        pdao.findAll().forEach(System.out::println);
+
+        Perfil p = new Perfil(0, "Tester", 100);
+        pdao.insert(p);                     // Hibernate le da id auto
+        int idGen = p.getIdPerfil();
+
+        System.out.println(pdao.findById(idGen));
+
+        p.setNombre("QA Lead");
+        pdao.update(p);
+
+        pdao.deletebyId(idGen);
+
+        System.out.println("FIN DE TEST PERFILES");
+    }
+}

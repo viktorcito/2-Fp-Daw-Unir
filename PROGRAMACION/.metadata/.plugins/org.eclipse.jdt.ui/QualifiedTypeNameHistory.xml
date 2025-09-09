@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.lang.StringIndexOutOfBoundsException"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="negocio.IDepartmentDao"/>
+    <fullyQualifiedTypeName name="negocio.DepartmentDaoImplList"/>
+    <fullyQualifiedTypeName name="negocio.ICatalogo"/>
+    <fullyQualifiedTypeName name="modelo.dao.ConexionMy8"/>
+    <fullyQualifiedTypeName name="java.io.Serializable"/>
+    <fullyQualifiedTypeName name="modelo.dao.AbsGenericoDaoImpl"/>
+    <fullyQualifiedTypeName name="modelo.dao.ClienteDao"/>
+</qualifiedTypeNameHistroy>

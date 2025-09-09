@@ -1,0 +1,117 @@
+package principales;
+
+import java.util.List;
+import java.util.Scanner;
+
+import modelo.dao.ClienteDao;
+import modelo.dao.ClienteDaoImplMy8Jdbc;
+import modelo.javabean.Cliente;
+
+/**
+ * Menú de consola para la gestión básica de clientes
+ * (alta, búsqueda, listado, eliminación, exportar, importar).
+ *
+ * - Usa double para facturación -
+ * - Métodos DAO: insertOne / findById / findAll / deleteOne -
+ */
+public class GestionClientes {
+
+    private static final Scanner    sc   = new Scanner(System.in);
+    private static final ClienteDao cdao = new ClienteDaoImplMy8Jdbc();
+
+    public static void main(String[] args) {
+
+        int opcion;
+        do {
+            mostrarMenu();
+            opcion = Integer.parseInt(sc.nextLine());
+
+            switch (opcion) {
+                case 1 -> alta();
+                case 2 -> buscar();
+                case 3 -> mostrarTodos();
+                case 4 -> eliminar();
+                case 5 -> exportar();
+                case 6 -> importar();
+                case 7 -> System.out.println("👋  Fin del programa");
+                default -> System.out.println("Opción incorrecta");
+            }
+        } while (opcion != 7);
+
+        sc.close();
+    }
+
+    /* ---------- menú ---------- */
+    private static void mostrarMenu() {
+        System.out.println("""
+                \n===== GESTIÓN DE CLIENTES =====
+                1. Alta del Cliente
+                2. Buscar un Cliente
+                3. Mostrar Todos
+                4. Eliminar un Cliente
+                5. Exportar a fichero
+                6. Importar desde fichero
+                7. Salir
+                Selecciona opción:
+                """);
+    }
+
+    /* ---------- opción 1 : alta ---------- */
+    private static void alta() {
+        System.out.print("CIF: ");          String cif       = sc.nextLine();
+        System.out.print("Nombre: ");       String nombre    = sc.nextLine();
+        System.out.print("Apellidos: ");    String apellidos = sc.nextLine();
+        System.out.print("Domicilio: ");    String domicilio = sc.nextLine();
+        System.out.print("Facturación anual: ");
+        double fact = Double.parseDouble(sc.nextLine());
+        System.out.print("Número empleados: ");
+        int numEmp = Integer.parseInt(sc.nextLine());
+
+        Cliente cli = new Cliente(cif, nombre, apellidos, domicilio, fact, numEmp);
+        int filas = cdao.insertOne(cli);
+        System.out.println(filas == 1 ? "Cliente dado de alta" : "No se pudo dar de alta");
+    }
+
+    /* ---------- opción 2 : buscar ---------- */
+    private static void buscar() {
+        System.out.print("Introduce CIF a buscar: ");
+        Cliente c = cdao.findById(sc.nextLine());
+        System.out.println(c != null ? c : "Cliente no encontrado");
+    }
+
+    /* ---------- opción 3 : mostrar todos ---------- */
+    private static void mostrarTodos() {
+        List<Cliente> lista = cdao.findAll();
+        if (lista.isEmpty()) {
+            System.out.println("No hay clientes");
+        } else {
+            lista.forEach(System.out::println);
+        }
+    }
+
+    /* ---------- opción 4 : eliminar ---------- */
+    private static void eliminar() {
+        System.out.print("CIF a eliminar: ");
+        int filas = cdao.deleteOne(sc.nextLine());
+        System.out.println(filas == 1 ? "Cliente eliminado"
+                                      : filas == 0 ? "Cliente no existe"
+                                                   : "No se pudo eliminar");
+    }
+
+    /* opción 5 – exportar */
+    private static void exportar() {
+        System.out.print("Ruta completa (Enter = Escritorio): ");
+        String ruta = sc.nextLine();                 // puede estar vacío
+        System.out.println(cdao.exportar(ruta));
+    }
+
+    /* opción 6 – importar */
+    private static void importar() {
+        System.out.print("Ruta CSV a importar (Enter = Escritorio): ");
+        String ruta = sc.nextLine();
+        List<Cliente> lista = cdao.importar(ruta);
+        System.out.println("-- Clientes importados --");
+        lista.forEach(System.out::println);
+    }
+
+}

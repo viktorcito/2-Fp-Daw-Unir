@@ -1,0 +1,48 @@
+package test.dao;
+
+import java.time.LocalDate;
+import modelo.dao.*;
+import modelo.entities.*;
+
+public class TestEmpleados {
+    public static void main(String[] args) {
+
+        EmpleadoDao edao = new EmpleadoDaoImplJpa();
+        DepartamentoDao ddao = new DepartamentoDaoImplJpa();
+        PerfilDao       pdao = new PerfilDaoImplJpa();
+
+        // Listar primero
+        edao.findAll().forEach(System.out::println);
+
+        // Crear uno nuevo (usa dep=10, perfil=3 que ya existen)
+        Empleado e = new Empleado();
+        e.setApellidos("Prueba");
+        e.setNombre("Juan");
+        e.setGenero("H");
+        e.setEmail("juan.test@tt.com");
+        e.setPassword("1234");
+        e.setSalario(12345);
+        e.setFechaIngreso(LocalDate.now());
+        e.setFechaNacimiento(LocalDate.of(1990,1,1));
+        e.setDepartamento(ddao.findById(10));
+        e.setPerfil(pdao.findById(3));
+
+        edao.insert(e);
+        int idGen = e.getIdEmpl();
+
+        // Mostrar métodos propios
+        System.out.println("Nombre completo: " + e.nombreCompleto());
+        System.out.println("Literal género : " + e.literalGenero());
+        System.out.println("Salario 3 meses: " + e.salarioMensual(3));
+
+        // Consultas rápidas
+        System.out.println("Salario total global = " + edao.salarioTotal());
+        System.out.println("Salario dep 20       = " + edao.salarioTotal(20));
+        edao.empleadosByApellido("diaz").forEach(System.out::println);
+
+        // Limpiar
+        edao.deletebyId(idGen);
+
+        System.out.println("FIN DE TEST EMPLEADOS");
+    }
+}

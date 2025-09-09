@@ -1,0 +1,107 @@
+package modelo.dao;
+
+import java.util.List;
+import jakarta.persistence.TypedQuery;
+import modelo.entities.Empleado;
+
+public class EmpleadoDaoImplJpa extends AbsConexionJpa implements EmpleadoDao {
+
+	/* ========= CRUD ========= */
+
+	@Override
+	public Empleado findById(Integer id) {
+		return em.find(Empleado.class, id);
+	}
+
+	@Override
+	public int insert(Empleado e) {
+		try {
+			tx.begin();
+			em.persist(e);
+			tx.commit();
+			return 1;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			tx.rollback();
+			return 0;
+		}
+	}
+
+	@Override
+	public int update(Empleado e) {
+		try {
+			tx.begin();
+			em.merge(e);
+			tx.commit();
+			return 1;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			tx.rollback();
+			return 0;
+		}
+	}
+
+	@Override
+	public int deletebyId(Integer id) {
+		Empleado ref = findById(id);
+		if (ref == null)
+			return 0;
+		try {
+			tx.begin();
+			em.remove(ref);
+			tx.commit();
+			return 1;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			tx.rollback();
+			return -1;
+		}
+	}
+
+	@Override
+	public List<Empleado> findAll() {
+		return em.createQuery("FROM Empleado", Empleado.class).getResultList();
+	}
+
+	/* ========= MÉTODOS ESPECÍFICOS ========= */
+
+	@Override
+	public List<Empleado> empleadosByDepartamento(int idDepar) {
+		TypedQuery<Empleado> q = em.createNamedQuery("Empleado.byDepartamento", Empleado.class).setParameter("idDep",
+				idDepar);
+		return q.getResultList();
+	}
+
+	@Override
+	public List<Empleado> empleadosByGenero(char sexo) {
+		TypedQuery<Empleado> q = em.createNamedQuery("Empleado.byGenero", Empleado.class).setParameter("sexo", sexo);
+		return q.getResultList();
+	}
+
+	@Override
+	public List<Empleado> empleadosByApellido(String subcadena) {
+		TypedQuery<Empleado> q = em.createNamedQuery("Empleado.byApellido", Empleado.class).setParameter("sub",
+				subcadena);
+		return q.getResultList();
+	}
+
+	@Override
+	public double salarioTotal() {
+		Double total = em.createNamedQuery("Empleado.sumaSalarios", Double.class).getSingleResult();
+		return total == null ? 0 : total;
+	}
+
+	@Override
+	public double salarioTotal(int idDepar) {
+		Double total = em.createNamedQuery("Empleado.sumaSalariosDep", Double.class).setParameter("idDep", idDepar)
+				.getSingleResult();
+		return total == null ? 0 : total;
+	}
+
+	@Override
+	public List<Empleado> empleadosByIdPerfil(int idPerfil) {
+		TypedQuery<Empleado> q = em.createNamedQuery("Empleado.byPerfil", Empleado.class).setParameter("idPerfil",
+				idPerfil);
+		return q.getResultList();
+	}
+}

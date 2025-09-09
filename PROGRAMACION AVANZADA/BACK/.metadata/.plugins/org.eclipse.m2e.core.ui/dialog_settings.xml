@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="C:\Users\VSPC\Downloads\Actividad6_Profe_ok\Actividad6_Profe_ok"/>
+			<item value="C:\Users\VSPC\Documents\2DAW_ES_JAVA_2425\WS_TOOLS\VGS_Activ6"/>
+			<item value="C:\Users\VSPC\Documents\2DAW_ES_JAVA_2425\WS_TOOLS\Actividad6_Profe_ok"/>
+			<item value="C:\Users\VSPC\Documents\2DAW_ES_JAVA_2425\WS_TOOLS\EXAMEN_SEGUNDA_PROFE"/>
+			<item value="C:\Users\VSPC\Documents\2DAW_ES_JAVA_2425\WS_TOOLS\30_Comercial_Cliente"/>
+			<item value="C:\Users\VSPC\Downloads\EDT_Actividad4"/>
+			<item value="C:\Users\VSPC\Documents\2DAW_ES_JAVA_2425\WS_TOOLS\EDT_Actividad4"/>
+			<item value="C:\Users\VSPC\Downloads\ACtividad3_Cajero_Transferir_Solucion_Profesor"/>
+			<item value="C:\Users\VSPC\Documents\2DAW_ES_JAVA_2425\WS_TOOLS\Actividad_2_Cajero_Solucion_Profe"/>
+			<item value="C:\Users\VSPC\Documents\2DAW_ES_JAVA_2425\WS_TOOLS\VGS_Actividad2"/>
+			<item value="C:\Users\VSPC\Downloads\03_productos_jpa_profe (1)"/>
+			<item value="C:\Users\VSPC\Downloads\06_Familias_datajpa_lombok_profe"/>
+			<item value="C:\Users\VSPC\Downloads\TED_Actividad2"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+		</list>
+		<list key="groupId">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+</section>
